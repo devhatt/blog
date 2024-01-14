@@ -11,7 +11,7 @@
     "changeset": "changeset",
     "prepare": "husky install",
     "postinstall": "nuxt prepare",
-    "commit": "git-cz",
+    "commit": "cz",
     "ci:publish": "pnpm build && changeset publish",
     "ci:version": "changeset version"
   },
@@ -19,6 +19,8 @@
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
     "@commitlint/cz-commitlint": "^18.4.4",
+    "commitizen": "4.3.0",
+    "cz-conventional-changelog": "3.3.0",
     "husky": "^8.0.3",
     "nuxt": "^3.9.1",
     "vue": "^3.4.10",
@@ -35,5 +37,10 @@
       }
     }
   },
-  "license": "MIT"
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
