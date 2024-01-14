@@ -7,8 +7,15 @@ import js from "@eslint/js";
 import tsParser from "@typescript-eslint/parser";
 import tsEslint from "@typescript-eslint/eslint-plugin";
 import arrayFuncPlugin from "eslint-plugin-array-func";
-
-// const compat = new FlatCompat({});
+import eslintCommentsPlugin from "eslint-plugin-eslint-comments";
+import importPlugin from "eslint-plugin-import";
+import perfectionistPlugin from "eslint-plugin-perfectionist";
+import unicornPlugin from "eslint-plugin-unicorn";
+import promisePlugin from "eslint-plugin-promise";
+import noSecretsPlugin from "eslint-plugin-no-secrets";
+import regexpPlugin from "eslint-plugin-regexp";
+import writeGoodCommentsPlugin from "eslint-plugin-write-good-comments";
+import eslintImportResolverTypescript from "eslint-import-resolver-typescript";
 
 export default defineFlatConfig([
   // global ignores
@@ -19,26 +26,86 @@ export default defineFlatConfig([
   {
     ...js.configs.recommended,
     rules: {
+      "arrow-body-style": ["warn", "as-needed"],
       "class-methods-use-this": "off",
       "dot-notation": "off",
       "max-params": "off",
+      "no-loop-func": "off",
       "no-loss-of-precision": "off",
       "no-magic-numbers": "off",
       "no-unused-vars": "off",
     },
   },
+  // nuxt config eslint
+  {
+    files: ["*.ts", "*.tsx", "*.mts", "*.cts", "*.vue"],
+    rules: {
+      // The core 'no-unused-vars' rules (in the eslint:recommended ruleset)
+      "@typescript-eslint/no-unused-vars": "warn",
+      // does not work with type definitions.
+      "no-unused-vars": "off",
+    },
+  },
+  {
+    // Include typescript eslint rules in *.vue files
+    // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/eslint-recommended.ts
+    files: ["*.vue"],
+    rules: {
+      "constructor-super": "off", // ts(2335) & ts(2377)
+      "getter-return": "off", // ts(2378)
+      "no-const-assign": "off", // ts(2588)
+      "no-dupe-args": "off", // ts(2300)
+      "no-dupe-class-members": "off", // ts(2393) & ts(2300)
+      "no-dupe-keys": "off", // ts(1117)
+      "no-func-assign": "off", // ts(2539)
+      "no-import-assign": "off", // ts(2539) & ts(2540)
+      "no-new-symbol": "off", // ts(7009)
+      "no-obj-calls": "off", // ts(2349)
+      "no-redeclare": "off", // ts(2451)
+      "no-setter-return": "off", // ts(2408)
+      "no-this-before-super": "off", // ts(2376)
+      "no-undef": "off", // ts(2304)
+      "no-unreachable": "off", // ts(7027)
+      "no-unsafe-negation": "off", // ts(2365) & ts(2360) & ts(2358)
+      "no-var": "error", // ts transpiles let/const to var, so no need for vars any more
+      "prefer-const": "error", // ts provides better types with const
+      "prefer-rest-params": "error", // ts provides better types with rest args over arguments
+      "prefer-spread": "error", // ts transpiles spread to apply, so no need for manual apply
+      "valid-typeof": "off", // ts(2367)
+    },
+  },
+  {
+    files: [
+      // These pages are not used directly by users so they can have one-word names.
+      "**/pages/**/*.{js,ts,jsx,tsx,vue}",
+      "**/layouts/**/*.{js,ts,jsx,tsx,vue}",
+      "**/app.{js,ts,jsx,tsx,vue}",
+      "**/error.{js,ts,jsx,tsx,vue}",
+      // These files should have multiple words in their names as they are within subdirectories.
+      "**/components/*/**/*.{js,ts,jsx,tsx,vue}",
+    ],
+    rules: { "vue/multi-word-component-names": "off" },
+  },
+  {
+    // Pages and layouts are required to have a single root element if transitions are enabled.
+    files: [
+      "**/pages/**/*.{js,ts,jsx,tsx,vue}",
+      "**/layouts/**/*.{js,ts,jsx,tsx,vue}",
+    ],
+    rules: { "vue/no-multiple-template-root": "error" },
+  },
   // typescript eslint rules
   {
     files: ["**/*.ts", "**/*.vue"],
-    plugins: {
-      "@typescript-eslint": tsEslint,
-    },
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: "./tsconfig.json",
         extraFileExtensions: [".vue"],
+        project: "./tsconfig.json",
       },
+    },
+    plugins: {
+      "@typescript-eslint": tsEslint,
     },
     rules: {
       "@typescript-eslint/adjacent-overload-signatures": "warn",
@@ -163,24 +230,22 @@ export default defineFlatConfig([
   {
     files: ["**/*.vue"],
     languageOptions: {
-      parser: vueParser,
       ecmaVersion: 2020,
-      sourceType: "module",
+      parser: vueParser,
       parserOptions: {
         parser: tsParser,
         sourceType: "module",
       },
+      sourceType: "module",
     },
     plugins: { vue },
     rules: {
-      "vue/script-indent": ["warn", 2, { baseIndent: 1 }],
+      "vue/component-api-style": ["error", ["script-setup"]],
       "vue/component-name-in-template-casing": ["error", "kebab-case"],
       "vue/component-options-name-casing": ["error", "kebab-case"],
       "vue/custom-event-name-casing": ["error", "kebab-case"],
       "vue/define-emits-declaration": ["error", "type-based"],
       "vue/define-props-declaration": ["error", "type-based"],
-      "vue/component-api-style": ["error", ["script-setup"]],
-      "vue/no-required-prop-with-default": ["error", { autofix: false }],
       "vue/multi-word-component-names": "error",
       "vue/no-arrow-functions-in-watch": "error",
       "vue/no-async-in-computed-properties": "error",
@@ -214,6 +279,7 @@ export default defineFlatConfig([
       "vue/no-mutating-props": "error",
       "vue/no-parsing-error": "error",
       "vue/no-ref-as-operand": "error",
+      "vue/no-required-prop-with-default": ["error", { autofix: false }],
       "vue/no-reserved-component-names": "error",
       "vue/no-reserved-keys": "error",
       "vue/no-reserved-props": "error",
@@ -239,6 +305,7 @@ export default defineFlatConfig([
       "vue/require-valid-default-prop": "error",
       "vue/return-in-computed-property": "error",
       "vue/return-in-emits-validator": "error",
+      "vue/script-indent": ["warn", 2, { baseIndent: 1 }],
       "vue/use-v-on-exact": "error",
       "vue/valid-attribute-name": "error",
       "vue/valid-define-emits": "error",
@@ -247,8 +314,8 @@ export default defineFlatConfig([
       "vue/valid-template-root": "error",
       "vue/valid-v-bind": "error",
       "vue/valid-v-cloak": "error",
-      "vue/valid-v-else-if": "error",
       "vue/valid-v-else": "error",
+      "vue/valid-v-else-if": "error",
       "vue/valid-v-for": "error",
       "vue/valid-v-html": "error",
       "vue/valid-v-if": "error",
@@ -268,6 +335,14 @@ export default defineFlatConfig([
     files: ["**/*"],
     plugins: {
       "array-func": arrayFuncPlugin,
+      "eslint-comments": eslintCommentsPlugin,
+      import: importPlugin,
+      "no-secrets": noSecretsPlugin,
+      perfectionist: perfectionistPlugin,
+      promise: promisePlugin,
+      regexp: regexpPlugin,
+      unicorn: unicornPlugin,
+      "write-good-comments": writeGoodCommentsPlugin,
     },
     rules: {
       "array-func/avoid-reverse": "off",
@@ -276,6 +351,181 @@ export default defineFlatConfig([
       "array-func/prefer-array-from": "warn",
       "array-func/prefer-flat": "warn",
       "array-func/prefer-flat-map": "warn",
+      "eslint-comments/disable-enable-pair": ["warn", { allowWholeFile: true }],
+      "eslint-comments/no-aggregating-enable": ["warn"],
+      "eslint-comments/no-duplicate-disable": ["warn"],
+      "eslint-comments/no-unlimited-disable": ["warn"],
+      "eslint-comments/no-unused-disable": ["warn"],
+      "eslint-comments/no-unused-enable": ["warn"],
+      "eslint-comments/require-description": ["warn"],
+      "import/default": "warn",
+      "import/export": "warn",
+      "import/first": "warn",
+      "import/newline-after-import": "warn",
+      "import/no-absolute-path": "warn",
+      "import/no-anonymous-default-export": [
+        "warn",
+        { allowArray: true, allowObject: true },
+      ],
+      "import/no-cycle": "warn",
+      "import/no-deprecated": "warn",
+      "import/no-duplicates": "warn",
+      "import/no-empty-named-blocks": "warn",
+      "import/no-extraneous-dependencies": "warn",
+      "import/no-named-as-default-member": "warn",
+      "import/no-self-import": "warn",
+      "import/no-unresolved": "warn",
+      "import/no-unused-modules": "warn",
+      "import/order": "warn",
+      "no-secrets/no-secrets": "warn",
+      "perfectionist/sort-array-includes": "warn",
+      "perfectionist/sort-astro-attributes": "warn",
+      "perfectionist/sort-classes": "warn",
+      "perfectionist/sort-enums": "warn",
+      "perfectionist/sort-exports": "warn",
+      "perfectionist/sort-imports": "off", // keep disable to not conflict with import-helpers/order-imports
+      "perfectionist/sort-interfaces": "warn",
+      "perfectionist/sort-jsx-props": "warn",
+      "perfectionist/sort-maps": "warn",
+      "perfectionist/sort-named-exports": "warn",
+      "perfectionist/sort-named-imports": "warn",
+      "perfectionist/sort-object-types": "warn",
+      "perfectionist/sort-objects": "warn",
+      "perfectionist/sort-union-types": "warn",
+      "promise/always-return": "warn",
+      "promise/catch-or-return": "warn",
+      "promise/no-callback-in-promise": "warn",
+      "promise/no-multiple-resolved": "warn",
+      "promise/no-nesting": "warn",
+      "promise/no-new-statics": "warn",
+      "promise/no-promise-in-callback": "warn",
+      "promise/no-return-in-finally": "warn",
+      "promise/no-return-wrap": "warn",
+      "promise/param-names": "warn",
+      "promise/prefer-await-to-then": "warn",
+      "regexp/confusing-quantifier": "warn",
+      "regexp/control-character-escape": "warn",
+      "regexp/negation": "warn",
+      "regexp/no-contradiction-with-assertion": "warn",
+      "regexp/no-dupe-characters-character-class": "warn",
+      "regexp/no-empty-alternative": "warn",
+      "regexp/no-empty-capturing-group": "warn",
+      "regexp/no-empty-character-class": "warn",
+      "regexp/no-empty-group": "warn",
+      "regexp/no-empty-lookarounds-assertion": "warn",
+      "regexp/no-empty-string-literal": "warn",
+      "regexp/no-escape-backspace": "warn",
+      "regexp/no-extra-lookaround-assertions": "warn",
+      "regexp/no-invalid-regexp": "warn",
+      "regexp/no-invisible-character": "warn",
+      "regexp/no-lazy-ends": "warn",
+      "regexp/no-legacy-features": "warn",
+      "regexp/no-misleading-capturing-group": "warn",
+      "regexp/no-misleading-unicode-character": "warn",
+      "regexp/no-missing-g-flag": "warn",
+      "regexp/no-non-standard-flag": "warn",
+      "regexp/no-obscure-range": "warn",
+      "regexp/no-optional-assertion": "warn",
+      "regexp/no-potentially-useless-backreference": "warn",
+      "regexp/no-super-linear-backtracking": "warn",
+      "regexp/no-useless-assertions": "warn",
+      "regexp/no-useless-backreference": "warn",
+      "regexp/no-useless-dollar-replacements": "warn",
+      "unicorn/better-regex": "warn",
+      "unicorn/catch-error-name": "warn",
+      "unicorn/consistent-destructuring": "warn",
+      "unicorn/consistent-function-scoping": "warn",
+      "unicorn/escape-case": "warn",
+      "unicorn/expiring-todo-comments": "warn",
+      "unicorn/explicit-length-check": "warn",
+      "unicorn/new-for-builtins": "warn",
+      "unicorn/no-abusive-eslint-disable": "warn",
+      "unicorn/no-array-callback-reference": "warn",
+      "unicorn/no-array-for-each": "warn",
+      "unicorn/no-array-method-this-argument": "warn",
+      "unicorn/no-array-push-push": "warn",
+      "unicorn/no-await-expression-member": "warn",
+      "unicorn/no-console-spaces": "warn",
+      "unicorn/no-document-cookie": "warn",
+      "unicorn/no-empty-file": "warn",
+      "unicorn/no-for-loop": "warn",
+      "unicorn/no-instanceof-array": "warn",
+      "unicorn/no-invalid-remove-event-listener": "warn",
+      "unicorn/no-lonely-if": "warn",
+      "unicorn/no-negated-condition": "warn",
+      "unicorn/no-nested-ternary": "warn",
+      "unicorn/no-new-array": "warn",
+      "unicorn/no-new-buffer": "warn",
+      "unicorn/no-static-only-class": "warn",
+      "unicorn/no-this-assignment": "warn",
+      "unicorn/no-unnecessary-await": "warn",
+      "unicorn/no-unnecessary-polyfills": "warn",
+      "unicorn/no-unreadable-array-destructuring": "warn",
+      "unicorn/no-unreadable-iife": "warn",
+      "unicorn/no-unused-properties": "warn",
+      "unicorn/no-useless-fallback-in-spread": "warn",
+      "unicorn/no-useless-length-check": "warn",
+      "unicorn/no-useless-promise-resolve-reject": "warn",
+      "unicorn/no-useless-spread": "warn",
+      "unicorn/no-useless-switch-case": "warn",
+      "unicorn/no-useless-undefined": "warn",
+      "unicorn/no-zero-fractions": "warn",
+      "unicorn/number-literal-case": "warn",
+      "unicorn/numeric-separators-style": "warn",
+      "unicorn/prefer-add-event-listener": "warn",
+      "unicorn/prefer-array-find": "warn",
+      "unicorn/prefer-array-index-of": "warn",
+      "unicorn/prefer-array-some": "warn",
+      "unicorn/prefer-at": "warn",
+      "unicorn/prefer-blob-reading-methods": "warn",
+      "unicorn/prefer-code-point": "warn",
+      "unicorn/prefer-date-now": "warn",
+      "unicorn/prefer-default-parameters": "warn",
+      "unicorn/prefer-dom-node-append": "warn",
+      "unicorn/prefer-dom-node-dataset": "warn",
+      "unicorn/prefer-dom-node-remove": "warn",
+      "unicorn/prefer-dom-node-text-content": "warn",
+      "unicorn/prefer-event-target": "warn",
+      "unicorn/prefer-export-from": "warn",
+      "unicorn/prefer-includes": "warn",
+      "unicorn/prefer-json-parse-buffer": "warn",
+      "unicorn/prefer-keyboard-event-key": "warn",
+      "unicorn/prefer-logical-operator-over-ternary": "warn",
+      "unicorn/prefer-modern-dom-apis": "warn",
+      "unicorn/prefer-modern-math-apis": "warn",
+      "unicorn/prefer-native-coercion-functions": "warn",
+      "unicorn/prefer-negative-index": "warn",
+      "unicorn/prefer-node-protocol": "warn",
+      "unicorn/prefer-number-properties": "warn",
+      "unicorn/prefer-object-from-entries": "warn",
+      "unicorn/prefer-optional-catch-binding": "warn",
+      "unicorn/prefer-prototype-methods": "warn",
+      "unicorn/prefer-query-selector": "warn",
+      "unicorn/prefer-reflect-apply": "warn",
+      "unicorn/prefer-regexp-test": "warn",
+      "unicorn/prefer-set-has": "warn",
+      "unicorn/prefer-set-size": "warn",
+      "unicorn/prefer-string-replace-all": "warn",
+      "unicorn/prefer-string-slice": "warn",
+      "unicorn/prefer-string-starts-ends-with": "warn",
+      "unicorn/prefer-string-trim-start-end": "warn",
+      "unicorn/prefer-switch": "warn",
+      "unicorn/relative-url-style": "warn",
+      "unicorn/require-array-join-separator": "warn",
+      "unicorn/require-number-to-fixed-digits-argument": "warn",
+      "unicorn/require-post-message-target-origin": "warn",
+      "unicorn/switch-case-braces": "warn",
+      "unicorn/template-indent": "warn",
+      "unicorn/throw-new-error": "warn",
+      "write-good-comments/write-good-comments": "warn",
+    },
+    settings: {
+      "import/resolver": {
+        node: {
+          extensions: [".js", ".jsx", ".ts", ".tsx"],
+        },
+        typescript: eslintImportResolverTypescript,
+      },
     },
   },
   eslintConfigPrettier,
