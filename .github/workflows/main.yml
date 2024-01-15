@@ -49,6 +49,9 @@ jobs:
       - name: Setup deps
         uses: ./.github/actions/install-deps
 
+      - name: Build
+        run: pnpm generate
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
