@@ -1,5 +1,11 @@
 # blog
 
+## 0.0.4
+
+### Patch Changes
+
+- [`9a3f028`](https://github.com/devhatt/blog/commit/9a3f028d8eb1b5b1bbcec5110a5a56db4bd16b67) Thanks [@alvarogfn](https://github.com/alvarogfn)! - testing publish
+
 ## 0.0.3
 
 ### Patch Changes
