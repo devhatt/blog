@@ -1,5 +1,0 @@
----
-"blog": minor
----
-
-blank page
