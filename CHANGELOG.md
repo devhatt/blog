@@ -1,5 +1,11 @@
 # blog
 
+## 0.1.0
+
+### Minor Changes
+
+- [`95783a4`](https://github.com/devhatt/blog/commit/95783a41b67623ba33465663ff4bd50238a0d14b) Thanks [@alvarogfn](https://github.com/alvarogfn)! - blank page
+
 ## 0.0.5
 
 ### Patch Changes
