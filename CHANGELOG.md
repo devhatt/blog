@@ -1,5 +1,11 @@
 # blog
 
+## 0.1.2
+
+### Patch Changes
+
+- [`958ead1`](https://github.com/devhatt/blog/commit/958ead1c8cc3d5afe3cff49b0caf3e6397047d62) Thanks [@alvarogfn](https://github.com/alvarogfn)! - fix pipeline error
+
 ## 0.1.1
 
 ### Patch Changes
