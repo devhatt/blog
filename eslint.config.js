@@ -1,6 +1,5 @@
 import { defineFlatConfig } from "eslint-define-config";
 import eslintConfigPrettier from "eslint-config-prettier";
-// import { FlatCompat } from "@eslint/eslintrc";
 import vue from "eslint-plugin-vue";
 import vueParser from "vue-eslint-parser";
 import js from "@eslint/js";
@@ -15,7 +14,6 @@ import promisePlugin from "eslint-plugin-promise";
 import noSecretsPlugin from "eslint-plugin-no-secrets";
 import regexpPlugin from "eslint-plugin-regexp";
 import writeGoodCommentsPlugin from "eslint-plugin-write-good-comments";
-import eslintImportResolverTypescript from "eslint-import-resolver-typescript";
 
 export default defineFlatConfig([
   // global ignores
@@ -67,10 +65,10 @@ export default defineFlatConfig([
       "no-undef": "off", // ts(2304)
       "no-unreachable": "off", // ts(7027)
       "no-unsafe-negation": "off", // ts(2365) & ts(2360) & ts(2358)
-      "no-var": "error", // ts transpiles let/const to var, so no need for vars any more
+      "no-var": "error", // ts transpile let/const to var, so no need for vars any more
       "prefer-const": "error", // ts provides better types with const
       "prefer-rest-params": "error", // ts provides better types with rest args over arguments
-      "prefer-spread": "error", // ts transpiles spread to apply, so no need for manual apply
+      "prefer-spread": "error", // ts transpile spread to apply, so no need for manual apply
       "valid-typeof": "off", // ts(2367)
     },
   },
@@ -81,13 +79,13 @@ export default defineFlatConfig([
       "**/layouts/**/*.{js,ts,jsx,tsx,vue}",
       "**/app.{js,ts,jsx,tsx,vue}",
       "**/error.{js,ts,jsx,tsx,vue}",
-      // These files should have multiple words in their names as they are within subdirectories.
+      // These files should have more than 1 word in their names as they are within subdirectories.
       "**/components/*/**/*.{js,ts,jsx,tsx,vue}",
     ],
-    rules: { "vue/multi-word-component-names": "off" },
+    rules: {},
   },
   {
-    // Pages and layouts are required to have a single root element if transitions are enabled.
+    // Ensure that pages and layouts have a single root element when transitions are active.
     files: [
       "**/pages/**/*.{js,ts,jsx,tsx,vue}",
       "**/layouts/**/*.{js,ts,jsx,tsx,vue}",
@@ -101,7 +99,7 @@ export default defineFlatConfig([
       parser: tsParser,
       parserOptions: {
         extraFileExtensions: [".vue"],
-        project: "./tsconfig.json",
+        project: ["./tsconfig.json", "./.nuxt/tsconfig.json"],
       },
     },
     plugins: {
@@ -181,7 +179,6 @@ export default defineFlatConfig([
       "@typescript-eslint/no-unnecessary-type-constraint": "warn",
       "@typescript-eslint/no-unsafe-argument": "warn",
       "@typescript-eslint/no-unsafe-assignment": "warn",
-      "@typescript-eslint/no-unsafe-call": "warn",
       "@typescript-eslint/no-unsafe-declaration-merging": "warn",
       "@typescript-eslint/no-unsafe-enum-comparison": "warn",
       "@typescript-eslint/no-unsafe-member-access": "warn",
@@ -246,7 +243,6 @@ export default defineFlatConfig([
       "vue/custom-event-name-casing": ["error", "kebab-case"],
       "vue/define-emits-declaration": ["error", "type-based"],
       "vue/define-props-declaration": ["error", "type-based"],
-      "vue/multi-word-component-names": "error",
       "vue/no-arrow-functions-in-watch": "error",
       "vue/no-async-in-computed-properties": "error",
       "vue/no-child-content": "error",
@@ -330,6 +326,13 @@ export default defineFlatConfig([
       "vue/valid-v-text": "error",
     },
   },
+  // vue component rules
+  {
+    files: ["./components/**/*.vue"],
+    rules: {
+      "vue/multi-word-component-names": "error",
+    },
+  },
   // global rules
   {
     files: ["**/*"],
@@ -363,18 +366,12 @@ export default defineFlatConfig([
       "import/first": "warn",
       "import/newline-after-import": "warn",
       "import/no-absolute-path": "warn",
-      "import/no-anonymous-default-export": [
-        "warn",
-        { allowArray: true, allowObject: true },
-      ],
       "import/no-cycle": "warn",
       "import/no-deprecated": "warn",
       "import/no-duplicates": "warn",
       "import/no-empty-named-blocks": "warn",
       "import/no-extraneous-dependencies": "warn",
-      "import/no-named-as-default-member": "warn",
       "import/no-self-import": "warn",
-      "import/no-unresolved": "warn",
       "import/no-unused-modules": "warn",
       "import/order": "warn",
       "no-secrets/no-secrets": "warn",
@@ -524,9 +521,9 @@ export default defineFlatConfig([
         node: {
           extensions: [".js", ".jsx", ".ts", ".tsx"],
         },
-        typescript: eslintImportResolverTypescript,
       },
     },
   },
+
   eslintConfigPrettier,
 ]);
