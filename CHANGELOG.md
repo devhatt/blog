@@ -1,5 +1,11 @@
 # blog
 
+## 0.1.1
+
+### Patch Changes
+
+- [`efdabbe`](https://github.com/devhatt/blog/commit/efdabbee0e583130cd2c09fb20e690d8aa6d5334) Thanks [@alvarogfn](https://github.com/alvarogfn)! - fix pipeline
+
 ## 0.1.0
 
 ### Minor Changes
