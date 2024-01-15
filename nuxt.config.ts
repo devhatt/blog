@@ -6,12 +6,14 @@ export default defineNuxtConfig({
   },
   css: ["~/assets/scss/reset.scss"],
   devtools: { enabled: true },
-  modules: ["@nuxt/content"],
+  generate: {},
+  modules: [["@nuxt/content", { defaultLocale: "pt-BR" }]],
   nitro: {
     prerender: {
       routes: ["/sitemap.xml"],
     },
   },
+  ssr: true,
   typescript: {
     strict: true,
     typeCheck: true,
