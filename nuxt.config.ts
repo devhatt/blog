@@ -7,7 +7,15 @@ export default defineNuxtConfig({
   css: ["~/assets/scss/reset.scss"],
   devtools: { enabled: true },
   generate: {},
-  modules: [["@nuxt/content", { defaultLocale: "pt-BR" }]],
+  modules: [
+    [
+      "@nuxt/content",
+      {
+        defaultLocale: "pt-BR",
+        documentDriven: true,
+      },
+    ],
+  ],
   nitro: {
     prerender: {
       routes: ["/sitemap.xml"],
