@@ -17,9 +17,9 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.5.0",
-    "@commitlint/cli": "^18.4.4",
-    "@commitlint/config-conventional": "^18.4.4",
-    "@commitlint/cz-commitlint": "^18.4.4",
+    "@commitlint/cli": "18.4.4",
+    "@commitlint/config-conventional": "18.4.4",
+    "@commitlint/cz-commitlint": "18.4.4",
     "@eslint/eslintrc": "3.0.0",
     "@eslint/js": "8.56.0",
     "@nuxt/eslint-config": "0.2.0",
@@ -52,22 +52,15 @@
     "prettier": "3.2.2",
     "sass": "1.69.7",
     "typescript": "5.2.2",
-    "vue": "^3.4.10",
+    "vue": "3.4.10",
     "vue-eslint-parser": "9.4.0",
-    "vue-router": "^4.2.5",
+    "vue-router": "4.2.5",
     "vue-tsc": "1.8.27"
   },
   "dependencies": {
     "@changesets/cli": "2.27.1",
-    "@nuxt/content": "^2.10.0",
+    "@nuxt/content": "2.10.0",
     "sitemap": "7.1.1"
-  },
-  "overrides": {
-    "nuxt": {
-      "dependencies": {
-        "typescript": "^5.2.2"
-      }
-    }
   },
   "license": "MIT",
   "config": {
