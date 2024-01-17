@@ -1,15 +1,9 @@
 <template>
   <div>
     <header-component />
-    <main>
+    <main class="text-red-500">
       <img src="/devhat.jpg" />
       <h1>DevHatt</h1>
     </main>
   </div>
 </template>
-
-<style lang="scss" module>
-  .container {
-    color: $color-base-gray-dark;
-  }
-</style>

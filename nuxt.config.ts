@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     dirs: ["~/components"],
     global: true,
   },
-  css: ["~/assets/styles/reset.scss", "~/assets/styles/base.scss"],
+  css: ["~/assets/styles/css/main.css"],
   devtools: { enabled: true },
   generate: {},
   modules: [
@@ -62,6 +62,12 @@ export default defineNuxtConfig({
           `,
         },
       },
+    },
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
 });
