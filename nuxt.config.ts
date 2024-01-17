@@ -14,6 +14,11 @@ export default defineNuxtConfig({
         id: 'UA-XXXXXXXX-X'
       }
     }],
+    ["@nuxtjs/i18n", {
+    vueI18n: './i18n'
+  
+
+    }],
   ],
   nitro: {
     prerender: {
