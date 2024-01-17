@@ -13,8 +13,7 @@
     "postinstall": "nuxt prepare",
     "commit": "cz",
     "ci:publish": "pnpm build && changeset publish",
-    "ci:version": "changeset version",
-    "tokens": "style-dictionary build --config ./theme.config.json"
+    "ci:version": "changeset version"
   },
   "devDependencies": {
     "@changesets/changelog-github": "0.5.0",
