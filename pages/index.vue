@@ -1,6 +1,6 @@
 <template>
   <main>
-    <img src="~/assets/devhat.jpg" />
+    <img src="/devhat.jpg" />
     <h1>DevHatt</h1>
   </main>
 </template>
@@ -24,7 +24,7 @@
 
   h1 {
     font-size: 2.5rem;
-    font-family: sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: bold;
     color: white;
   }
