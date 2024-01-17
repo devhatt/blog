@@ -7,7 +7,14 @@ export default defineNuxtConfig({
   css: ["~/assets/scss/reset.scss"],
   devtools: { enabled: true },
   generate: {},
-  modules: [["@nuxtjs/sitemap", {}]],
+  modules: [
+    ["@nuxtjs/sitemap", {}],
+    ['nuxt-gtag', {
+      gtag: {
+        id: 'UA-XXXXXXXX-X'
+      }
+    }],
+  ],
   nitro: {
     prerender: {
       routes: ["/sitemap.xml"],

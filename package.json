@@ -49,6 +49,7 @@
     "eslint-plugin-write-good-comments": "0.2.0",
     "husky": "^8.0.3",
     "nuxt": "^3.9.1",
+    "nuxt-gtag": "1.1.2",
     "prettier": "3.2.2",
     "sass": "1.69.7",
     "typescript": "5.3.3",
