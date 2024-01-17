@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     dirs: ["~/components"],
     global: true,
   },
-  css: ["~/assets/scss/reset.scss"],
+  css: ["~/assets/styles/reset.scss", "~/assets/styles/base.scss"],
   devtools: { enabled: true },
   generate: {},
   modules: [
@@ -20,14 +20,15 @@ export default defineNuxtConfig({
     [
       "@nuxtjs/i18n",
       {
-        defaultLocale: 'en',
+        defaultLocale: "en",
         detectBrowserLanguage: {
-          cookieKey: 'i18n_redirected',
-          redirectOn: 'root', // recommended
-          useCookie: true
+          cookieKey: "i18n_redirected",
+          redirectOn: "root", // recommended
+          useCookie: true,
         }, // if you are using custom path, default
-        strategy: 'prefix_except_default',
-        vueI18n: './i18n',
+        locales: ["pt"],
+        strategy: "prefix_except_default",
+        vueI18n: "./i18n",
       },
     ],
     [
@@ -40,7 +41,7 @@ export default defineNuxtConfig({
           outputDir: "assets",
         },
       },
-    ], 
+    ],
   ],
   nitro: {
     prerender: {
@@ -51,5 +52,16 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: true,
+  },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+          @use '@/assets/styles/_variables' as *;
+          `,
+        },
+      },
+    },
   },
 });
