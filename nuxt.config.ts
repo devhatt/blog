@@ -9,16 +9,32 @@ export default defineNuxtConfig({
   generate: {},
   modules: [
     ["@nuxtjs/sitemap", {}],
-    ['nuxt-gtag', {
-      gtag: {
-        id: 'UA-XXXXXXXX-X'
-      }
-    }],
-    ["@nuxtjs/i18n", {
-    vueI18n: './i18n'
-  
-
-    }],
+    [
+      "nuxt-gtag",
+      {
+        gtag: {
+          id: "UA-XXXXXXXX-X",
+        },
+      },
+    ],
+    [
+      "@nuxtjs/i18n",
+      {
+        locales: ['pt'],
+        vueI18n: "./i18n"
+      },
+    ],
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          "Space+Mono": true,
+        },
+        googleFonts: {
+          outputDir: "assets",
+        },
+      },
+    ], 
   ],
   nitro: {
     prerender: {
