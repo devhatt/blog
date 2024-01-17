@@ -20,8 +20,14 @@ export default defineNuxtConfig({
     [
       "@nuxtjs/i18n",
       {
-        locales: ['pt'],
-        vueI18n: "./i18n"
+        defaultLocale: 'en',
+        detectBrowserLanguage: {
+          cookieKey: 'i18n_redirected',
+          redirectOn: 'root', // recommended
+          useCookie: true
+        }, // if you are using custom path, default
+        strategy: 'prefix_except_default',
+        vueI18n: './i18n',
       },
     ],
     [
