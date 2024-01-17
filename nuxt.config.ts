@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     [
       "@nuxtjs/i18n",
       {
-        defaultLocale: "en",
+        defaultLocale: "pt",
         detectBrowserLanguage: {
           cookieKey: "i18n_redirected",
           redirectOn: "root", // recommended
@@ -52,17 +52,6 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     typeCheck: true,
-  },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `
-          @use '@/assets/styles/_variables' as *;
-          `,
-        },
-      },
-    },
   },
   postcss: {
     plugins: {
