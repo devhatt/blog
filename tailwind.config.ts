@@ -9,6 +9,7 @@ export default {
     "./app.vue",
     "./error.vue",
   ],
+  plugins: [],
   theme: {
     extend: {
       colors: {
@@ -17,5 +18,4 @@ export default {
       },
     },
   },
-  plugins: [],
 } satisfies Config;

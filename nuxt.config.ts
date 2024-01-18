@@ -48,15 +48,15 @@ export default defineNuxtConfig({
       routes: ["/sitemap.xml"],
     },
   },
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+      tailwindcss: {},
+    },
+  },
   ssr: true,
   typescript: {
     strict: true,
     typeCheck: true,
-  },
-  postcss: {
-    plugins: {
-      tailwindcss: {},
-      autoprefixer: {},
-    },
   },
 });
