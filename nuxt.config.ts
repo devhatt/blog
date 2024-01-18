@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     dirs: ["~/components"],
     global: true,
   },
-  css: ["~/assets/styles/reset.scss", "~/assets/styles/base.scss"],
+  css: ["~/assets/styles/css/main.css"],
   devtools: { enabled: true },
   generate: {},
   modules: [
@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     [
       "@nuxtjs/i18n",
       {
-        defaultLocale: "en",
+        defaultLocale: "pt",
         detectBrowserLanguage: {
           cookieKey: "i18n_redirected",
           redirectOn: "root", // recommended
@@ -48,20 +48,15 @@ export default defineNuxtConfig({
       routes: ["/sitemap.xml"],
     },
   },
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+      tailwindcss: {},
+    },
+  },
   ssr: true,
   typescript: {
     strict: true,
     typeCheck: true,
-  },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `
-          @use '@/assets/styles/_variables' as *;
-          `,
-        },
-      },
-    },
   },
 });
