@@ -13,8 +13,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#24262B",
-        secondary: "#DF4540",
+        /*
+          #212226
+          #D94141
+          #BF3939
+          #F2A7A7
+          #F2F2F2
+        */
+        page: {
+          "background-color": "#212226",
+          "base-text-color": "#F2F2F2",
+        },
+      },
+      fontFamily: {
+        base: ["Space Mono", "sans-serif"],
       },
     },
   },
