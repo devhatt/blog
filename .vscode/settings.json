@@ -1,0 +1,18 @@
+{
+  "cSpell.words": ["changefreq", "tailwindcss"],
+  "css.customData": [".vscode/tailwind.json"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.format.enable": true,
+  "eslint.options": {
+    "overrideConfigFile": "eslint.config.js"
+  },
+  "volar.takeOverMode.extension": "Vue.volar",
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
