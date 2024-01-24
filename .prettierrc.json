@@ -1,5 +1,6 @@
 {
   "vueIndentScriptAndStyle": true,
   "endOfLine": "auto",
-  "singleQuote": false
+  "singleQuote": false,
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
