@@ -4,9 +4,8 @@ export default defineNuxtConfig({
     dirs: ["~/components"],
     global: true,
   },
-  css: ["~/assets/styles/css/main.css"],
+  css: ["~/assets/styles/css/main.css", "~/assets/styles/css/reset.css"],
   devtools: { enabled: true },
-  generate: {},
   modules: [
     ["@nuxtjs/sitemap", {}],
     [
@@ -57,6 +56,6 @@ export default defineNuxtConfig({
   ssr: true,
   typescript: {
     strict: true,
-    typeCheck: true,
+    typeCheck: "build",
   },
 });

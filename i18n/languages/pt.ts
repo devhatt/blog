@@ -1,3 +1,3 @@
 export default {
-  birthLibrium: 'O Nascimento do Librium.'
-}
+  birthLibrium: "O Nascimento do Librium.",
+};

@@ -146,7 +146,6 @@ export default defineFlatConfig([
       "@typescript-eslint/no-duplicate-type-constituents": "warn",
       "@typescript-eslint/no-dynamic-delete": "warn",
       "@typescript-eslint/no-empty-function": "warn",
-      "@typescript-eslint/no-empty-interface": "warn",
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-extra-non-null-assertion": "warn",
       "@typescript-eslint/no-extraneous-class": "warn",
@@ -517,6 +516,7 @@ export default defineFlatConfig([
       "write-good-comments/write-good-comments": "warn",
     },
     settings: {
+      "import/ignore": ["vue"],
       "import/resolver": {
         node: {
           extensions: [".js", ".jsx", ".ts", ".tsx"],
