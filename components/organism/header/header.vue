@@ -9,9 +9,7 @@
 
 <template>
   <template v-if="isMobile">
-    <organism-drawer>
-      
-    </organism-drawer>
+    <organism-drawer> </organism-drawer>
     <header
       class="flex h-12 flex-row flex-nowrap items-center justify-between p-4 text-page-base-text-color"
     >

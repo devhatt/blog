@@ -1,18 +1,13 @@
-
 <script setup lang="ts">
-import type { AnchorHTMLAttributes as AnchorAttributes } from 'vue';
+  import type { AnchorHTMLAttributes as AnchorAttributes } from "vue";
 
-interface Props extends /* @vue-ignore */ AnchorAttributes { }
+  interface Props extends /* @vue-ignore */ AnchorAttributes {}
 
-
-defineProps<Props>();
-
+  defineProps<Props>();
 </script>
-
-
 
 <template>
   <a v-bind="$attrs" rel="”noopener noreferrer”">
-  <slot></slot>
+    <slot></slot>
   </a>
 </template>
