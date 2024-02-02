@@ -41,16 +41,11 @@ export default defineNuxtConfig({
         },
       },
     ],
+    '@unocss/nuxt'
   ],
   nitro: {
     prerender: {
       routes: ["/sitemap.xml"],
-    },
-  },
-  postcss: {
-    plugins: {
-      autoprefixer: {},
-      tailwindcss: {},
     },
   },
   ssr: true,
