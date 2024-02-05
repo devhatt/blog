@@ -1,6 +1,6 @@
 {
-  "cSpell.words": ["changefreq", "tailwindcss"],
-  "css.customData": [".vscode/tailwind.json"],
+  "cSpell.words": ["changefreq"],
+  "css.lint.unknownAtRules": "ignore",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
