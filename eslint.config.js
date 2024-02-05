@@ -519,17 +519,20 @@ export default defineFlatConfig([
   },
   {
     files: [
-      '**/pages/**/*.{js,ts,jsx,tsx,vue}',
-      '**/layouts/**/*.{js,ts,jsx,tsx,vue}',
-      '**/app.{js,ts,jsx,tsx,vue}',
-      '**/error.{js,ts,jsx,tsx,vue}',
-      '**/components/*/**/*.{js,ts,jsx,tsx,vue}'
+      "**/pages/**/*.{js,ts,jsx,tsx,vue}",
+      "**/layouts/**/*.{js,ts,jsx,tsx,vue}",
+      "**/app.{js,ts,jsx,tsx,vue}",
+      "**/error.{js,ts,jsx,tsx,vue}",
+      "**/components/*/**/*.{js,ts,jsx,tsx,vue}",
     ],
-    rules: { 'vue/multi-word-component-names': 'off' }
+    rules: { "vue/multi-word-component-names": "off" },
   },
   {
-    files: ['**/pages/**/*.{js,ts,jsx,tsx,vue}', '**/layouts/**/*.{js,ts,jsx,tsx,vue}'],
-    rules: { 'vue/no-multiple-template-root': 'error' }
+    files: [
+      "**/pages/**/*.{js,ts,jsx,tsx,vue}",
+      "**/layouts/**/*.{js,ts,jsx,tsx,vue}",
+    ],
+    rules: { "vue/no-multiple-template-root": "error" },
   },
   // this is eslint rules for config files
   {
@@ -538,8 +541,10 @@ export default defineFlatConfig([
       "commitlint.config.ts",
       "nuxt.config.js",
       "tailwind.config.ts",
+      "vue-shim.d.ts",
     ],
     rules: {
+      "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-magic-numbers": "off",
       "@typescript-eslint/no-unsafe-assignment": "off",
       "@typescript-eslint/no-var-requires": "off",

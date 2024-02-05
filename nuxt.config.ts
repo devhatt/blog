@@ -4,10 +4,10 @@ export default defineNuxtConfig({
     dirs: ["~/components"],
     global: true,
   },
-  css: ["~/assets/styles/css/main.css", "~/assets/styles/css/reset.css"],
+  css: ["@unocss/reset/eric-meyer.css", "~/styles/global.css"],
   devtools: { enabled: true },
   modules: [
-    ["@nuxtjs/sitemap", {}],
+    "@nuxtjs/sitemap",
     [
       "nuxt-gtag",
       {
@@ -41,7 +41,7 @@ export default defineNuxtConfig({
         },
       },
     ],
-    '@unocss/nuxt'
+    "@unocss/nuxt",
   ],
   nitro: {
     prerender: {

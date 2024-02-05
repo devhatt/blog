@@ -6,14 +6,15 @@ import {
   presetTypography,
   presetUno,
   presetWebFonts,
-  transformerDirectives,
   transformerVariantGroup,
 } from "unocss";
+
+import transformerDirectives from "@unocss/transformer-directives";
 
 export default defineConfig({
   presets: [
     presetUno(),
-    presetAttributify(),
+    presetAttributify({}),
     presetIcons(),
     presetTypography(),
     presetWebFonts({
@@ -22,32 +23,22 @@ export default defineConfig({
       },
     }),
   ],
-  shortcuts: [
-    // ...
-  ],
+  shortcuts: [],
   theme: {
     colors: {
       button: {
-        "primary-color": "#F2F2F2",
+        primary: "#F2F2F2",
       },
       page: {
-        "background-color": "#212226",
-        "base-text-color": "#F2F2F2",
+        background: "#F2F2F2",
+        primary: "#212226",
       },
       palette: {
-        "color-1": "#212226",
-        "color-2": "#F2A7A7",
-        "color-3": "#F2F2F2",
-        "color-4": "#D94141",
-        "color-5": "#BF3939",
-      },
-      social: {
-        brands: {
-          discord: "#7289da",
-          github: "#181717",
-          linkedin: "#0077b5",
-          twitter: "#1da1f2",
-        },
+        1: "#212226",
+        2: "#F2A7A7",
+        3: "#F2F2F2",
+        4: "#D94141",
+        5: "#BF3939",
       },
     },
     fontFamily: {

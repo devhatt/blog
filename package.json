@@ -30,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "6.18.1",
     "@typescript-eslint/parser": "6.18.1",
     "@unocss/nuxt": "0.58.4",
+    "@unocss/transformer-directives": "0.58.4",
     "autoprefixer": "10.4.17",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
@@ -53,7 +54,7 @@
     "eslint-plugin-vue": "9.20.1",
     "eslint-plugin-write-good-comments": "0.2.0",
     "husky": "^8.0.3",
-    "nuxt": "^3.9.1",
+    "nuxt": "^3.10.0",
     "nuxt-gtag": "1.1.2",
     "prettier": "3.2.2",
     "style-dictionary": "3.9.1",
@@ -65,7 +66,8 @@
     "vue-tsc": "1.8.27"
   },
   "dependencies": {
-    "@nuxtjs/sitemap": "5.0.4"
+    "@nuxtjs/sitemap": "5.0.4",
+    "@unocss/reset": "0.58.4"
   },
   "license": "MIT",
   "config": {
