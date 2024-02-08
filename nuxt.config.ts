@@ -30,17 +30,6 @@ export default defineNuxtConfig({
         vueI18n: "./i18n",
       },
     ],
-    [
-      "@nuxtjs/google-fonts",
-      {
-        families: {
-          "Space+Mono": true,
-        },
-        googleFonts: {
-          outputDir: "assets",
-        },
-      },
-    ],
     "@unocss/nuxt",
   ],
   nitro: {

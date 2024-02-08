@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["changefreq"],
+  "cSpell.words": ["changefreq", "https", "petdex"],
   "css.lint.unknownAtRules": "ignore",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
