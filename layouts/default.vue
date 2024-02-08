@@ -9,7 +9,7 @@
       <nav flex="~ items-center gap-3 wrap" class="xl:none">
         <a>Eventos</a>
         <a>Projetos</a>
-        <nuxt-link to="blog">Blog</nuxt-link>
+        <nuxt-link to="/blog">Blog</nuxt-link>
       </nav>
     </header>
     <div m="0 auto" min-w="280px" max-w="1300px" w="80vw">

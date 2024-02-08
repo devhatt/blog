@@ -1,5 +1,5 @@
 <template>
-  <div>blog</div>
+  <div>{{ $route.params }}</div>
 </template>
 
 <script setup lang="ts"></script>

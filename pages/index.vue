@@ -20,7 +20,7 @@
       description:
         "O HatBot é um bot para discord que tem como objetivo ajudar os usuários a gerenciar seus servidores, com funções de moderação, música, entretenimento e muito mais!",
       href: "https://github.com/devhatt/hatbot-discord",
-      img: "hatbot.png",
+      img: "discord.jpg",
       tags: ["Typescript", "Node.js"],
       title: "HatBot Discord",
     },
@@ -45,7 +45,8 @@
     },
     {
       date: "2019-09-08T15:25:53Z",
-      description: "Dolor in consectetur id occaecat esse ea duis consectetur labore labore fugiat reprehenderit. Pariatur id eu ut tempor in ad sit nisi ullamco aliquip minim. Dolor commodo incididunt nostrud culpa consequat duis occaecat consequat. Consectetur reprehenderit dolore proident quis ipsum ea proident ipsum culpa eu anim.",
+      description:
+        "Dolor in consectetur id occaecat esse ea duis consectetur labore labore fugiat reprehenderit. Pariatur id eu ut tempor in ad sit nisi ullamco aliquip minim. Dolor commodo incididunt nostrud culpa consequat duis occaecat consequat. Consectetur reprehenderit dolore proident quis ipsum ea proident ipsum culpa eu anim.",
       href: "https://www.evento.com",
       time: "4:00 - 5:00",
       title: "Evento de Angular",
