@@ -1,10 +1,23 @@
 <template>
-  <section relative flex="~ row nowrap" rounded-md overflow-hidden shadow-2xl>
-    <img alt="" aspect-square object-center object-cover :src="img" />
+  <section
+    relative
+    flex="~ row nowrap"
+    rounded-md
+    overflow-hidden
+    shadow-2xl
+    py-2
+  >
+    <img alt="" aspect-square object-center object-cover :src="img" hidden />
     <div text-start px-2 pb-2>
-      <h2 text="1.2rem" font-semibold my-2 first-letter:uppercase>
-        {{ title }}
-      </h2>
+      <div flex-flow-row items-center justify-between>
+        <h2 text="1.2rem" font-semibold my-2 first-letter:uppercase>
+          {{ title }}
+        </h2>
+        <nuxt-link :href="href">
+          <span sr-only>Participe</span>
+          <div class="i-mdi:external-link text-blue-500 size-5" />
+        </nuxt-link>
+      </div>
       <p :title="description" text-dark-100 text-sm line-clamp-2>
         {{ description }}
       </p>
@@ -14,9 +27,6 @@
         </li>
       </ul>
     </div>
-    <nuxt-link absolute top-2 right-2 :href="href">
-      <div class="i-mdi:external-link text-blue-400 size-5" />
-    </nuxt-link>
   </section>
 </template>
 

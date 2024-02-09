@@ -26,7 +26,7 @@ export default defineNuxtConfig({
           useCookie: true,
         }, // if you are using custom path, default
         locales: ["pt"],
-        strategy: "prefix_except_default",
+        strategy: "no_prefix",
         vueI18n: "./i18n",
       },
     ],

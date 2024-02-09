@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <header hidden flex="~ items-center justify-between" h="18" p="3">
+    <header h="18" p="3" class="hidden">
       <p font="bold" text="3xl">
         <a alt="Pagina inicial da Devhatt">DevHatt</a>
       </p>

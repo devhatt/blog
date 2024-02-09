@@ -1,37 +1,27 @@
-<template>
-  <nuxt-link
-    :href="href"
-    relative
-    flex-flow-col
-    rounded-md
-    overflow-hidden
-    shadow-2xl
-    increase
-  >
-    <img alt="" w-full h="65%" object-center object-cover :src="img" />
-    <p text-left p-5 text="1.25rem" font-semibold my-2 first-letter:uppercase>
-      {{ title }}
-    </p>
-    <div
-      bg-dark-opaque-80-rounded-8
-      absolute
-      top-2
-      right-2
-      flex="~ justify-center items-center"
-    >
-      <icon-external text-light-1 />
-    </div>
-  </nuxt-link>
-</template>
-
 <script setup lang="ts">
   interface Props {
-    date: string;
-    description: string;
-    href: string;
-    img: string;
-    title: string;
+    id: number;
   }
 
   defineProps<Props>();
 </script>
+
+<template>
+  <nuxt-link block shadow-xl :to="{ name: 'blog-id', params: { id } }">
+    <img
+      w-full
+      h-200px
+      object-cover
+      src="https://via.placeholder.com/200"
+      alt="Imagem do blog"
+    />
+    <div flex-flow-col gap-y-2 p-2>
+      <h2 text-lg font-bold>Uma postagem no blog</h2>
+      <p text-sm line-clamp-2>
+        Ea cupidatat et fugiat in. Ut reprehenderit consequat irure consequat
+        non laborum velit mollit sunt anim enim. Voluptate ut cillum aliqua
+        nostrud fugiat.
+      </p>
+    </div>
+  </nuxt-link>
+</template>

@@ -33,3 +33,21 @@ img {
   max-width: 100%;
   max-height: 100%;
 }
+
+h1,
+h2,
+h3 {
+  @apply font-bold;
+}
+
+h1 {
+  @apply text-lg;
+}
+
+h2 {
+  @apply text-md;
+}
+
+h3 {
+  @apply text-sm;
+}

@@ -52,31 +52,22 @@
       title: "Evento de Angular",
     },
   ]);
+
+  const posts = ref([
+    {
+      id: 1,
+    },
+  ]);
 </script>
 
 <template>
   <main>
     <h2>
-      Voluptate officia mollit amet nostrud duis fugiat proident consectetur
-      duis. Sunt deserunt aliqua culpa ullamco eiusmod deserunt sint.
-      Adipisicing deserunt ad consectetur fugiat consequat enim.
+      Bem-vindo a DevHatt! Aqui você encontra eventos, projetos e artigos sobre
+      tecnologia.
     </h2>
 
     <div flex="~ col nowrap gap-y-10">
-      <article>
-        Exercitation quis velit fugiat consequat aliquip ea. Magna consectetur
-        magna anim non ad veniam aute exercitation tempor sunt laboris aliquip
-        qui. Commodo amet voluptate esse excepteur cillum. Ullamco aute id dolor
-        sunt Lorem proident nulla. Commodo fugiat incididunt nostrud cillum sit
-        Lorem culpa commodo. Labore aliquip eiusmod cillum Lorem. Labore
-        occaecat Lorem ipsum magna sit tempor voluptate consectetur nostrud esse
-        veniam non. Ut anim labore irure pariatur sint sint proident ut amet qui
-        voluptate magna. Id veniam reprehenderit nisi est sunt. Eiusmod est elit
-        sunt veniam amet. Cupidatat aliqua fugiat consequat nostrud qui
-        adipisicing Lorem ex occaecat fugiat commodo exercitation do consequat.
-        Id non enim excepteur sit ex mollit est voluptate esse enim.
-      </article>
-
       <home-article flex="~ gap-x-2">
         <template v-slot:title> Nossos Projetos </template>
         <template v-slot:description>
@@ -85,14 +76,13 @@
         <div
           grid-auto-fill-250
           md:grid-auto-fill-350
-          gap-16
+          gap-4
           grid="~ justify-between"
         >
           <project-card
             v-for="(project, index) in projects"
             :key="index"
             v-bind="project"
-            h="9rem"
           />
         </div>
       </home-article>
@@ -106,14 +96,13 @@
           grid-auto-fill-280
           md:grid-auto-fill-350
           lg:grid-auto-fill-500
-          gap-16
+          gap-4
           grid="~ justify-between"
         >
           <event-card
             v-for="(event, index) in events"
             :key="index"
             v-bind="event"
-            h="15rem"
           />
         </div>
       </home-article>
@@ -126,11 +115,18 @@
           reprehenderit officia dolor Lorem.
         </p>
         <div
-          grid-auto-fill-250
-          sm:grid-auto-fill-350
-          gap-6
+          grid-auto-fill-280
+          md:grid-auto-fill-350
+          lg:grid-auto-fill-500
+          gap-4
           grid="~ justify-between"
-        ></div>
+        >
+          <blog-card
+            v-for="(post, index) in posts"
+            :key="index"
+            v-bind="post"
+          />
+        </div>
       </home-article>
     </div>
   </main>
