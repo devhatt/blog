@@ -37,30 +37,25 @@ export default defineNuxtConfig({
     typeCheck: "build",
   },
 
+  i18n: {
+    defaultLocale: "pt",
+    detectBrowserLanguage: {
+      cookieKey: "i18n_redirected",
+      redirectOn: "root", // recommended
+      useCookie: true,
+    }, // if you are using custom path, default
+    locales: ["pt"],
+    strategy: "no_prefix",
+    vueI18n: "./src/i18n",
+  },
+  gtag: {
+    id: "G-XXXXXXXXXX",
+  },
+
   modules: [
     "@nuxtjs/sitemap",
-    [
-      "nuxt-gtag",
-      {
-        gtag: {
-          id: "UA-XXXXXXXX-X",
-        },
-      },
-    ],
-    [
-      "@nuxtjs/i18n",
-      {
-        defaultLocale: "pt",
-        detectBrowserLanguage: {
-          cookieKey: "i18n_redirected",
-          redirectOn: "root", // recommended
-          useCookie: true,
-        }, // if you are using custom path, default
-        locales: ["pt"],
-        strategy: "no_prefix",
-        vueI18n: "./src/i18n",
-      },
-    ],
+    "nuxt-gtag",
+    "@nuxtjs/i18n",
     "@unocss/nuxt",
     "@nuxtjs/mdc",
   ],

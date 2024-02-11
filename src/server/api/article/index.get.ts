@@ -1,5 +1,5 @@
 import { defineEventHandler } from "h3";
-import { ArticleFindAllResponse } from "~/server/models";
+import type { ArticleFindAllResponse } from "~/server/models";
 
 type ArticleResponse = {
   cover_image: string;

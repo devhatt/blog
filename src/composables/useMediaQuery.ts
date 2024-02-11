@@ -1,5 +1,5 @@
-// useMedia.js
 import { ref, watchEffect } from "vue";
+import type { Ref } from "vue";
 
 export const useMediaQuery = (query: string): Ref<boolean> => {
   if (process.server === true) {
