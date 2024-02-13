@@ -24,4 +24,4 @@ logs
 !.env.example
 
 
-!.vscode
+!.vscode/blog.code-workspace
