@@ -18,7 +18,7 @@ export default defineConfig({
     presetIcons(),
     presetTypography(),
     presetWebFonts({
-      fonts: { sans: ["Roboto", "Space Mono"] },
+      fonts: { sans: ["Space Mono"] },
       provider: "google",
     }),
   ],
@@ -47,9 +47,8 @@ export default defineConfig({
     },
   ],
   theme: {
-    colors: {},
-    fontFamily: {
-      sans: "Roboto, Space Mono, sans-serif",
+    colors: {
+      primary: "#4fa5e0",
     },
   },
   transformers: [transformerDirectives(), transformerVariantGroup()],

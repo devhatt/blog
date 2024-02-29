@@ -9,8 +9,7 @@
 }
 
 body {
-  font-family: Montserrat, Helvetica;
-  @apply text-dark-100 leading-8;
+  @apply text-white leading-8 font-sans;
 }
 
 a {

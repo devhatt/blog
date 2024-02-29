@@ -1,23 +1,42 @@
 {
-  "name": "frontend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "blog",
+  "private": true,
+  "version": "0.1.2",
   "type": "module",
   "scripts": {
-    "prepare": "husky",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "changeset": "changeset",
+    "prepare": "husky install",
+    "postinstall": "nuxt prepare",
     "commit": "cz",
-    "lint": "eslint"
+    "ci:publish": "pnpm build && changeset publish",
+    "ci:version": "changeset version"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "0.5.0",
+    "@changesets/cli": "2.27.1",
     "@commitlint/cli": "18.4.4",
     "@commitlint/config-conventional": "18.4.4",
     "@commitlint/cz-commitlint": "18.4.4",
     "@eslint/eslintrc": "3.0.0",
     "@eslint/js": "8.56.0",
+    "@iconify-json/ic": "1.1.17",
+    "@iconify-json/material-symbols": "1.1.72",
+    "@iconify-json/mdi": "1.1.64",
+    "@nuxt/eslint-config": "0.2.0",
+    "@nuxtjs/i18n": "8.0.0",
+    "@nuxtjs/mdc": "0.5.0",
+    "@types/chroma-js": "2.4.3",
     "@types/eslint__eslintrc": "2.1.1",
     "@typescript-eslint/eslint-plugin": "6.18.1",
     "@typescript-eslint/parser": "6.18.1",
+    "@unocss/nuxt": "0.58.4",
+    "@unocss/preset-icons": "0.58.5",
+    "@unocss/transformer-directives": "0.58.4",
+    "autoprefixer": "10.4.17",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "8.56.0",
@@ -39,19 +58,28 @@
     "eslint-plugin-unicorn": "50.0.1",
     "eslint-plugin-vue": "9.20.1",
     "eslint-plugin-write-good-comments": "0.2.0",
-    "husky": "9.0.10",
+    "husky": "^8.0.3",
+    "nuxt": "^3.10.0",
+    "nuxt-gtag": "1.1.2",
     "prettier": "3.2.2",
-    "typescript": "5.3.3"
+    "style-dictionary": "3.9.1",
+    "typescript": "5.3.3",
+    "unocss": "0.58.4",
+    "vue": "3.4.10",
+    "vue-eslint-parser": "9.4.0",
+    "vue-router": "4.2.5",
+    "vue-tsc": "1.8.27"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "8.4.0",
+    "@nuxtjs/sitemap": "5.0.4",
+    "@unocss/reset": "0.58.4",
+    "chroma-js": "2.4.2"
+  },
+  "license": "MIT",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "dependencies": {
-    "@types/node": "^20.11.17"
   }
 }
